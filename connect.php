@@ -1,7 +1,7 @@
 <?php 
-define ('USER',"user");
-define('PASSWD',"passwd");
-define('SERVER',"server");
-define('BASE',"db");
+define ('USER',"perveyrie");
+define('PASSWD',"perveyrie");
+define('SERVER',"servinfo-db");
+define('BASE',"dbperveyrie");
 
 
