@@ -1,0 +1,50 @@
+a {
+    color: #dc3545;
+}
+
+.presentation {
+    padding: 10vh;
+    text-align: center;
+    color: #ffff;
+    background: linear-gradient(rgba(156, 0, 13, 0.5), rgba(255, 0, 0, 0.6)), url("../images/cinema.jpg") center;
+    background-size: cover;
+}
+
+.content > .container {
+    padding: 1.5%;
+}
+
+.content > .container > h3 {
+    padding-bottom: 2%;
+}
+
+.home-text {
+    margin-bottom: 2.5%;
+}
+
+.random {
+    margin-top: 2.5%;
+}
+
+.row-elem {
+    text-align: center;
+    margin: 5%;
+    font-size: large;
+}
+
+.important {
+    font-weight: bold;
+    font-size: xx-large;
+}
+
+.footer {
+    margin-top: 3vh;
+    text-align: center;
+    color: white;
+    padding: 1.5%;
+    width: 100%;
+}
+
+.notice {
+    font-size: small;
+}
