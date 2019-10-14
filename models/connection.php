@@ -1,6 +1,6 @@
 <?php
 
-require("connect.php");
+require("credentials.php");
 
 function connect_bd(){
 	$dsn = "mysql:dbname=".BASE.";host=".SERVER;

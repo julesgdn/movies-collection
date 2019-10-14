@@ -3,22 +3,41 @@
 
 class Director
 {
-    private $id;
+    private $id;    // Vide si non instancié avec "withId"
     private $name;
     private $birthDate;
 
     /**
      * Director constructor.
-     * @param $id
-     * @param $nom
-     * @param $prenom
-     * @param $dateNaissance
+     * @param $name
+     * @param $birthDate
      */
-    public function __construct($id, $name, $birthDate)
+    public function __construct($name)
     {
-        $this->id = $id;
         $this->name = $name;
-        $this->birthDate = $birthDate;
+    }
+
+    /**
+     * @param $id
+     * @param $name
+     * @param $birthDate
+     * @return Director
+     */
+    public static function withId($id, $name) {
+        $instance = new self($name);
+        $instance->setId($id);
+        return $instance;
+    }
+
+    /**
+     * @param $name
+     * @param $birthDate
+     * @return Director
+     */
+    public static function withBirthDate($name, $birthDate) {
+        $instance = new self($name);
+        $instance->setBirthDate($birthDate);
+        return $instance;
     }
 
     /**
@@ -27,6 +46,14 @@ class Director
     public function getId()
     {
         return $this->id;
+    }
+
+    /**
+     * @param mixed $id
+     */
+    public function setId($id)
+    {
+        $this->id = $id;
     }
 
     /**
