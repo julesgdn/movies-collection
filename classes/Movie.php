@@ -1,19 +1,19 @@
 <?php
 
 
-class Film
+class Movie
 {
-    private $titre;
-    private $anneeRealisation;
+    private $name;
+    private $realizationYear;
     private $genre;
     private $studio;
     private $synopsis;
-    private $realisateur;
-    private $afficheUrl;    // Vide si une API tierce est utilisée.
-    private $completeParAPI;
+    private $director;
+    private $posterUrl;    // Vide si une API tierce est utilisée.
+    private $useApi;
 
     /**
-     * Film constructor.
+     * Movie constructor.
      * @param $titre
      * @param $anneeRealisation
      * @param $genre
@@ -23,46 +23,46 @@ class Film
      */
     public function __construct($titre, $anneeRealisation, $genre, $studio, $synopsis, $realisateur, $afficheUrl, $completeParAPI)
     {
-        $this->titre = $titre;
-        $this->anneeRealisation = $anneeRealisation;
+        $this->name = $titre;
+        $this->realizationYear = $anneeRealisation;
         $this->genre = $genre;
         $this->studio = $studio;
         $this->synopsis = $synopsis;
-        $this->realisateur = $realisateur;
-        $this->afficheUrl = $afficheUrl;
-        $this->completeParAPI = $completeParAPI;
+        $this->director = $realisateur;
+        $this->posterUrl = $afficheUrl;
+        $this->useApi = $completeParAPI;
     }
 
     /**
      * @return mixed
      */
-    public function getTitre()
+    public function getName()
     {
-        return $this->titre;
+        return $this->name;
     }
 
     /**
-     * @param mixed $titre
+     * @param mixed $name
      */
-    public function setTitre($titre)
+    public function setName($name)
     {
-        $this->titre = $titre;
+        $this->name = $name;
     }
 
     /**
      * @return mixed
      */
-    public function getAnneeRealisation()
+    public function getRealizationYear()
     {
-        return $this->anneeRealisation;
+        return $this->realizationYear;
     }
 
     /**
-     * @param mixed $anneeRealisation
+     * @param mixed $realizationYear
      */
-    public function setAnneeRealisation($anneeRealisation)
+    public function setRealizationYear($realizationYear)
     {
-        $this->anneeRealisation = $anneeRealisation;
+        $this->realizationYear = $realizationYear;
     }
 
     /**
@@ -116,40 +116,40 @@ class Film
     /**
      * @return mixed
      */
-    public function getRealisateur()
+    public function getDirector()
     {
-        return $this->realisateur;
+        return $this->director;
     }
 
     /**
-     * @param mixed $realisateur
+     * @param mixed $director
      */
-    public function setRealisateur($realisateur)
+    public function setDirector($director)
     {
-        $this->realisateur = $realisateur;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getAfficheUrl()
-    {
-        return $this->afficheUrl;
-    }
-
-    /**
-     * @param mixed $afficheUrl
-     */
-    public function setAfficheUrl($afficheUrl)
-    {
-        $this->afficheUrl = $afficheUrl;
+        $this->director = $director;
     }
 
     /**
      * @return mixed
      */
-    public function utiliseAPI()
+    public function getPosterUrl()
     {
-        return $this->completeParAPI;
+        return $this->posterUrl;
+    }
+
+    /**
+     * @param mixed $posterUrl
+     */
+    public function setPosterUrl($posterUrl)
+    {
+        $this->posterUrl = $posterUrl;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function useApi()
+    {
+        return $this->useApi;
     }
 }
