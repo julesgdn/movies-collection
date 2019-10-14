@@ -3,34 +3,72 @@
 
 class Movie
 {
+    private $id;    // Vide si non instancié avec "withId"
     private $name;
     private $realizationYear;
     private $genre;
     private $studio;
-    private $synopsis;
-    private $director;
+    private $synopsis;      // Vide si une API tierce est utilisée.
+    private $directorId;
     private $posterUrl;    // Vide si une API tierce est utilisée.
     private $useApi;
 
     /**
      * Movie constructor.
-     * @param $titre
-     * @param $anneeRealisation
+     * @param $name
+     * @param $realizationYear
      * @param $genre
      * @param $studio
      * @param $synopsis
-     * @param $realisateur
+     * @param $directorId
+     * @param $posterUrl
+     * @param $useApi
      */
-    public function __construct($titre, $anneeRealisation, $genre, $studio, $synopsis, $realisateur, $afficheUrl, $completeParAPI)
+    public function __construct($name, $realizationYear, $genre, $studio, $synopsis, $directorId, $posterUrl, $useApi)
     {
-        $this->name = $titre;
-        $this->realizationYear = $anneeRealisation;
+        $this->name = $name;
+        $this->realizationYear = $realizationYear;
         $this->genre = $genre;
         $this->studio = $studio;
         $this->synopsis = $synopsis;
-        $this->director = $realisateur;
-        $this->posterUrl = $afficheUrl;
-        $this->useApi = $completeParAPI;
+        $this->directorId = $directorId;
+        $this->posterUrl = $posterUrl;
+        $this->useApi = $useApi;
+    }
+
+    /**
+     * @param $id
+     * @param $name
+     * @param $realizationYear
+     * @param $genre
+     * @param $studio
+     * @param $synopsis
+     * @param $director
+     * @param $posterUrl
+     * @param $useApi
+     * @return Movie
+     */
+    public static function withId($id, $name, $realizationYear, $genre, $studio, $synopsis, $director, $posterUrl, $useApi) {
+        $instance = new self($name, $realizationYear, $genre, $studio, $synopsis, $director, $posterUrl, $useApi);
+        $instance->setId($id);
+        return $instance;
+
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
+     * @param mixed $id
+     */
+    private function setId($id)
+    {
+        $this->id = $id;
     }
 
     /**
@@ -116,17 +154,17 @@ class Movie
     /**
      * @return mixed
      */
-    public function getDirector()
+    public function getDirectorId()
     {
-        return $this->director;
+        return $this->directorId;
     }
 
     /**
-     * @param mixed $director
+     * @param mixed $directorId
      */
-    public function setDirector($director)
+    public function setDirectorId($directorId)
     {
-        $this->director = $director;
+        $this->directorId = $directorId;
     }
 
     /**

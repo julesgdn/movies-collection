@@ -10,9 +10,23 @@
 </section>
 <section id="randomSelection" class="container">
     <h3><i class="fas fa-random"></i> Quelques films au hasard</h3>
+    {% for row in films|batch(4) %}
     <div class="row">
-        <p>Work in progress...</p>
+        {% for film in row %}
+        <div class="col-sm">
+            <div class="card bg-dark text-white">
+                <img src="{{posterUrl}}" class="card-img" alt="Affiche du film {{movieName}}.">
+                <div class="card-img-overlay">
+                    <h5 class="card-title">{{movieName}}</h5>
+                    <p class="card-text">Année : {{movieYear}}</p>
+                    <p class="card-text">Réalisateur : {{movieDirector}}</p>
+                    <p class="card-text">{{movieStudio}}</p>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
     </div>
+    {% endfor %}
 </section>
 <section id="latestAdditions" class="container">
     <h3><i class="fas fa-clock"></i> Les derniers ajouts</h3>
