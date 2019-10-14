@@ -5,7 +5,7 @@ Une application pour gérer une collection de films réalisée dans le cadre d'u
 - Hugo Perveyrie (https://github.com/Shloxi)
 - Jules Grandjean (https://github.com/julesgdn)
 
-## Comment utiliser MoviesConnection ?
+## Comment utiliser MoviesCollection ?
 - Il faut avoir un SGBD compatible MySQL et avoir transféré le contenu de l'archive de l'application sur un serveur web avec une installation de PHP.
 - Ensuite, il est nécessaire de configurer vos identifiants MySQL dans le fichier ``models/credentials.php``.
 
