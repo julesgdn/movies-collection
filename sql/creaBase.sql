@@ -2,19 +2,19 @@ Drop table IF EXISTS FILMS;
 Drop table IF EXISTS REALISATEUR;
 
 create table REALISATEUR(
-    Id SMALLINT PRIMARY KEY,
-    Nom Varchar(30),
-    Prenom Varchar(30),
+    Nom Varchar(100) PRIMARY KEY,
     DateNaiss DATETIME
 );
 
 create table FILMS(
+    Id SMALLINT,
     Titre Varchar(100),
-    AnneeRea DATETIME,
-    Genre Varchar(50),
-    Studio Varchar(50),
+    AnneeRea SMALLINT,
+    Genre Varchar(100),
+    Studio Varchar(100),
     Synopsis Varchar(300),
-    Realisateur SMALLINT,
-    PRIMARY KEY (Titre, AnneeRea),
-    FOREIGN KEY (Realisateur) REFERENCES REALISATEUR(Id) ON DELETE CASCADE
+    Realisateur Varchar(100),
+    AfficheUrl Varchar(255),
+    UtiliseApi BOOLEAN,
+    FOREIGN KEY (Realisateur) REFERENCES REALISATEUR(Nom) ON DELETE CASCADE
 );
