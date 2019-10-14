@@ -7,51 +7,41 @@
     <form method="POST" action="addMovie.php">
         <div class="form-group">
             <label for="movieName">Nom du film* :</label>
-            <input type="text" class="form-control" id="movieName" placeholder="Nom du film" required>
+            <input type="text" class="form-control" name="movieName" id="movieName" placeholder="Nom du film" required>
         </div>
         <div class="form-group">
             <label for="movieYear">Année de réalisation* :</label>
-            <input type="number" class="form-control" id="movieYear" min="1800" placeholder="Année de réalisation (minimum : 1800)" required>
+            <input type="number" class="form-control"  name="movieYear" id="movieYear" min="1800" placeholder="Année de réalisation (minimum : 1800)" required>
         </div>
         <div class="form-group">
             <label for="movieDirector">Réalisateur* :</label>
-            <input type="text" class="form-control" id="movieDirector" placeholder="Réalisateur" required>
+            <input type="text" class="form-control" name="movieDirector" id="movieDirector" placeholder="Réalisateur" required>
         </div>
         <div class="form-group">
             <label for="movieStudio">Studio* :</label>
-            <input type="text" class="form-control" id="movieStudio" placeholder="Studio" required>
+            <input type="text" class="form-control" name="movieStudio" id="movieStudio" placeholder="Studio" required>
         </div>
         <div class="form-group">
-            <label for="movieGenre">Genre du film* :</label>
-            <div id="movieGenre">
+            <label for="movieGenres">Genre du film* :</label>
+            <div name="movieGenres" id="movieGenres">
+                {% for genre in genres %}
                 <div class="custom-control custom-checkbox">
-                    <input type="checkbox" class="custom-control-input" id="genrePolicier">
-                    <label class="custom-control-label" for="genrePolicier">Policier</label>
+                    <input type="checkbox" class="custom-control-input" name="genres[]" id="{{genre}}">
+                    <label class="custom-control-label" for="{{genre}}">{{genre}}</label>
                 </div>
-                <div class="custom-control custom-checkbox">
-                    <input type="checkbox" class="custom-control-input" id="genreAction">
-                    <label class="custom-control-label" for="genreAction">Action</label>
-                </div>
-                <div class="custom-control custom-checkbox">
-                    <input type="checkbox" class="custom-control-input" id="genreAnimation">
-                    <label class="custom-control-label" for="genreAnimation">Animation</label>
-                </div>
-                <div class="custom-control custom-checkbox">
-                    <input type="checkbox" class="custom-control-input" id="genreComedie">
-                    <label class="custom-control-label" for="genreComedie">Comedie</label>
-                </div>
+                {% endfor %}
             </div>
         </div>
         <div class="form-group">
             <label for="movieSynopsis">Synopsis :</label>
-            <textarea class="form-control" id="movieSynopsis" rows="10" placeholder="Synopsis (facultatif)"></textarea>
+            <textarea class="form-control" name="movieSynopsis" id="movieSynopsis" rows="10" placeholder="Synopsis (facultatif)"></textarea>
         </div>
         <div class="custom-file">
-            <input type="file" class="custom-file-input" id="moviePoster">
+            <input type="file" class="custom-file-input" name="moviePoster" id="moviePoster">
             <label class="custom-file-label" for="moviePoster">Choisir un poster depuis votre appareil (falcultatif)</label>
         </div>
         <div class="custom-control custom-switch">
-            <input type="checkbox" class="custom-control-input" id="useAPI">
+            <input type="checkbox" class="custom-control-input" name="useAPI" id="useAPI">
             <label class="custom-control-label" for="useAPI">Compléter les informations en utilisant les informations de
                 <a href="https://www.themoviedb.org/">The Movie Database (TMDb)</a>.</label>
             <p>Note : Cela aura pour effet de remplacer le poster et le synopsis par des informations provenant de TMDb.</p>
