@@ -1,7 +1,9 @@
 # movies-collection
-Une application pour gérer une collection de films.
+Une application pour gérer une collection de films réalisée dans le cadre d'un projet scolaire dans le cadre de nos études en informatique.
 
-Un projet scolaire de @Shloxi et @julesgdn dans le cadre de nos études en informatique.
+## Développeurs :
+- Hugo Perveyrie (https://github.com/Shloxi)
+- Jules Grandjean (https://github.com/julesgdn)
 
 ## Comment utiliser MoviesConnection ?
 - Il faut avoir un SGBD compatible MySQL et avoir transféré le contenu de l'archive de l'application sur un serveur web avec une installation de PHP.
