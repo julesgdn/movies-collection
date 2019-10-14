@@ -1,5 +1,5 @@
 # movies-collection
-Une application pour gérer une collection de films
+Une application pour gérer une collection de films.
 
 Un projet scolaire de @Shloxi et @julesgdn dans le cadre de nos études en informatique.
 
