@@ -9,6 +9,8 @@ class Film
     private $studio;
     private $synopsis;
     private $realisateur;
+    private $afficheUrl;    // Vide si une API tierce est utilisée.
+    private $completeParAPI;
 
     /**
      * Film constructor.
@@ -19,7 +21,7 @@ class Film
      * @param $synopsis
      * @param $realisateur
      */
-    public function __construct($titre, $anneeRealisation, $genre, $studio, $synopsis, $realisateur)
+    public function __construct($titre, $anneeRealisation, $genre, $studio, $synopsis, $realisateur, $afficheUrl, $completeParAPI)
     {
         $this->titre = $titre;
         $this->anneeRealisation = $anneeRealisation;
@@ -27,6 +29,8 @@ class Film
         $this->studio = $studio;
         $this->synopsis = $synopsis;
         $this->realisateur = $realisateur;
+        $this->afficheUrl = $afficheUrl;
+        $this->completeParAPI = $completeParAPI;
     }
 
     /**
@@ -123,5 +127,29 @@ class Film
     public function setRealisateur($realisateur)
     {
         $this->realisateur = $realisateur;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getAfficheUrl()
+    {
+        return $this->afficheUrl;
+    }
+
+    /**
+     * @param mixed $afficheUrl
+     */
+    public function setAfficheUrl($afficheUrl)
+    {
+        $this->afficheUrl = $afficheUrl;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function utiliseAPI()
+    {
+        return $this->completeParAPI;
     }
 }
