@@ -3,7 +3,7 @@ Drop table IF EXISTS REALISATEURS;
 
 create table REALISATEURS(
     Nom Varchar(100) PRIMARY KEY,
-    DateNaiss DATETIME
+    DateNaiss DATE
 );
 
 create table FILMS(
