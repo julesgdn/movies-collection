@@ -7,7 +7,7 @@ create table REALISATEUR(
 );
 
 create table FILMS(
-    Id SMALLINT,
+    Id SMALLINT PRIMARY KEY AUTO_INCREMENT,
     Titre Varchar(100),
     AnneeRea SMALLINT,
     Genre Varchar(100),
