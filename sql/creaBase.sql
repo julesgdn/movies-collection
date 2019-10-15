@@ -1,7 +1,7 @@
 Drop table IF EXISTS FILMS;
-Drop table IF EXISTS REALISATEUR;
+Drop table IF EXISTS REALISATEURS;
 
-create table REALISATEUR(
+create table REALISATEURS(
     Nom Varchar(100) PRIMARY KEY,
     DateNaiss DATETIME
 );
