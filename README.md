@@ -1,5 +1,5 @@
 # movies-collection
-Une application pour gérer une collection de films réalisée dans le cadre d'un projet scolaire dans le cadre de nos études en informatique.
+Une application pour gérer une collection de films réalisée lors d'un projet scolaire dans le cadre de nos études en informatique.
 
 ## Développeurs :
 - Hugo Perveyrie (https://github.com/Shloxi)
@@ -14,3 +14,5 @@ Source de l'image par défaut de la page d'accueil : dbreen sur Pixabay (https:/
 
 Le code source présent dans ce dépôt et le programme associé sont fournis tels quels, sans aucune garantie, et nous ne saurions être tenus responsables d'une quelquonque utilisation faite
 par un tiers de notre code source/programme ainsi que leurs conséquences.
+
+Licences pour les bibliothèques de tierce partie dans le fichier THIRD-PARTY.txt
