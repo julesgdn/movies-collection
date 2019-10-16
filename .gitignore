@@ -1,4 +1,4 @@
 credentials.php
 vendor
 .idea
-models/apikey.php
+models/tmdb-api.php

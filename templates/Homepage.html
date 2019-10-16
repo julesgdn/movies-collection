@@ -6,22 +6,35 @@
     <h1 class="home-text display-4">Le plaisir de regarder un film. Autrement.</h1>
     <h2 class="lead">Il est déjà arrivé à tout le monde de ne pas savoir quoi regarder un soir.</h2>
     <h2 class="lead">Que vous soyez chez vous ou non, MoviesCollection, c'est la nouvelle façon de profiter de votre collection et de trouver des films à regarder, en quelques clics.</h2>
-    <button type="button" class="random btn btn-primary btn-lg btn-light">Trouver un film à regarder</button>
+    <a role="button" href="yourCollection.php" class="random btn btn-primary btn-lg btn-light">Trouver un film à regarder</a>
 </section>
 <section id="randomSelection" class="container">
     <h3><i class="fas fa-random"></i> Quelques films au hasard</h3>
-    {% for row in films|batch(4) %}
+    {% for row in randomFilms|batch(3) %}
     <div class="row">
         {% for film in row %}
-        <div class="col-sm">
+        <div class="col-md-4">
             <div class="card bg-dark text-white">
-                <img src="{{posterUrl}}" class="card-img" alt="Affiche du film {{movieName}}.">
-                <div class="card-img-overlay">
-                    <h5 class="card-title">{{movieName}}</h5>
-                    <p class="card-text">Année : {{movieYear}}</p>
-                    <p class="card-text">Réalisateur : {{movieDirector}}</p>
-                    <p class="card-text">{{movieStudio}}</p>
-                </div>
+                {% if film.useApi() %}
+                {% if film.getPosterIdFromAPI() != null %}
+                <img src="http://image.tmdb.org/t/p/w300/{{film.getPosterIdFromAPI()}}" class="card-img" alt="Affiche du film {{film.getName()}}.">
+                {% else %}
+                <img src="static/images/cinema.jpg" class="card-img" alt="Affiche non disponible}}.">
+                {% endif %}
+                {% else %}
+                {% if film.getPosterUrl() != null %}}
+                <img src="{{film.getPosterUrl()}}" class="card-img" alt="Affiche du film {{film.getName()}}.">
+                {% else %}
+                <img src="static/images/cinema.jpg" class="card-img" alt="Affiche non disponible}}.">
+                {% endif %}
+                {% endif %}
+                <a href="movie.php?id={{ film.getId()}}"><div class="card-img-overlay">
+                    <h5 class="card-title important poster">{{film.getName()}}</h5>
+                    <p class="card-text poster">Réalisateur : {{film.getDirector()}}</p>
+                    <p class="card-text poster">Studio : {{film.getStudio()}}</p>
+                    <p class="card-text poster">Genre : {{film.getGenre()}}</p>
+                    <p class="card-text poster">Année : {{film.getRealizationYear()}}</p>
+                </div></a>
             </div>
         </div>
         {% endfor %}
@@ -30,14 +43,35 @@
 </section>
 <section id="latestAdditions" class="container">
     <h3><i class="fas fa-clock"></i> Les derniers ajouts</h3>
+    {% for row in recentFilms|batch(3) %}
     <div class="row">
-        <p>Work in progress...</p>
+        {% for film in row %}
+        <div class="col-md-4">
+            <div class="card bg-dark text-white">
+                {% if film.useApi() %}
+                {% if film.getPosterIdFromAPI() != null %}
+                <img src="http://image.tmdb.org/t/p/w300/{{film.getPosterIdFromAPI()}}" class="card-img" alt="Affiche du film {{film.getName()}}.">
+                {% else %}
+                <img src="static/images/cinema.jpg" class="card-img" alt="Affiche non disponible}}.">
+                {% endif %}
+                {% else %}
+                {% if film.getPosterUrl() != null %}}
+                <img src="{{film.getPosterUrl()}}" class="card-img" alt="Affiche du film {{film.getName()}}.">
+                {% else %}
+                <img src="static/images/cinema.jpg" class="card-img" alt="Affiche non disponible}}.">
+                {% endif %}
+                {% endif %}
+                <a href="movie.php?id={{ film.getId()}}"><div class="card-img-overlay">
+                    <h5 class="card-title important poster">{{film.getName()}}</h5>
+                    <p class="card-text poster">Réalisateur : {{film.getDirector()}}</p>
+                    <p class="card-text poster">Studio : {{film.getStudio()}}</p>
+                    <p class="card-text poster">Genre : {{film.getGenre()}}</p>
+                    <p class="card-text poster">Année : {{film.getRealizationYear()}}</p>
+                </div></a>
+            </div>
+        </div>
+        {% endfor %}
     </div>
-</section>
-<section id="favoriteMovies" class="container">
-    <h3><i class="fas fa-star"></i> Vos films préférés</h3>
-    <div class="row">
-        <p>Work in progress...</p>
-    </div>
+    {% endfor %}
 </section>
 {% endblock %}

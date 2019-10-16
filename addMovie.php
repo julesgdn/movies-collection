@@ -1,6 +1,10 @@
 <?php
 
 include 'vendor/autoload.php';
+require_once 'models/MoviesManager.php';
+require_once 'models/DirectorsManager.php';
+require_once 'classes/Director.php';
+require_once 'classes/Movie.php';
 
 if($_SERVER['REQUEST_METHOD'] == "GET"){
     try {
@@ -17,7 +21,6 @@ if($_SERVER['REQUEST_METHOD'] == "GET"){
         die('ERROR: ' . $e->getMessage());
     }
 } else {
-    require_once 'models/model.php';
 
     $name = null;
     $realizationYear = null;
@@ -26,58 +29,72 @@ if($_SERVER['REQUEST_METHOD'] == "GET"){
     $synopsis = null;
     $directorName = null;
     $posterUrl = null;  // TODO
-    $useApi = $_POST('useAPI');
+    $useApi = null;
 
     $moviesManager = new MoviesManager();
     $directorsManager = new DirectorsManager();
 
-    if(!empty($_POST('movieName')) && strlen($_POST('movieName'))<=100) {
-        $name = $_POST('movieName');
+    if(!empty($_POST['movieName']) && strlen($_POST['movieName'])<=100) {
+        $name = $_POST['movieName'];
     } else {
         showError();
         return;
     }
 
-    if(!empty($_POST('movieYear')) && $_POST('movieYear') > 1800) {
-        $realizationYear = $_POST('movieYear');
+    if(!empty($_POST['movieYear']) && $_POST['movieYear'] > 1800) {
+        $realizationYear = $_POST['movieYear'];
     } else {
         showError();
         return;
     }
 
-    if(!empty($_POST('movieDirector')) && strlen($_POST('movieDirector'))<=100) {
-        $directorName = $_POST('movieDirector');
+    if(!empty($_POST['movieDirector']) && strlen($_POST['movieDirector'])<=100) {
+        $directorName = $_POST['movieDirector'];
     } else {
         showError();
         return;
     }
 
-    if(!empty($_POST('movieStudio')) && strlen($_POST('movieStudio'))<=100) {
-        $studio = $_POST('movieStudio');
+    if(!empty($_POST['movieStudio']) && strlen($_POST['movieStudio'])<=100) {
+        $studio = $_POST['movieStudio'];
     } else {
         showError();
         return;
     }
 
-    if(!empty($_POST('movieGenre'))) {
-        $genre = $_POST('movieGenre');
+    if(!empty($_POST['movieGenre'])) {
+        $genre = $_POST['movieGenre'];
     } else {
         showError();
         return;
     }
 
-    if(!empty($_POST('movieSynopsis')) && strlen($_POST('movieSynopsis'))<=300) {
-        $synopsis = $_POST('movieSynopsis');
+    if(strlen($_POST['movieSynopsis'])<=300) {
+        $synopsis = $_POST['movieSynopsis'];
     } else {
         showError();
         return;
     }
 
-    if(is_null($directorsManager->getDirector())) {
-        $directorsManager->addDirector(new Director($directorName));
+//    if(!isset($_POST['useAPI']) || $_POST['useAPI'] != "on") {
+//        $useApi = false;
+//    } else {
+//        $useApi = true;
+//    }
+
+    $useApi = true;
+
+    if(is_null($directorsManager->getDirector($directorName))) {
+        $director = new Director($directorName);
+        $directorsManager->addDirector($director);
     }
 
-    $moviesManager->addMovie(new Movie($name, $realizationYear, $genre, $studio, $synopsis, $directorName, $synopsis, $useApi));
+    $movie = new Movie($name, $realizationYear, $genre, $studio, $synopsis, $directorName, $synopsis, $useApi);
+
+    $moviesManager->addMovie($movie);
+
+    header('Location: yourCollection.php');
+    exit();
 }
 
 function showError() {
