@@ -1,5 +1,5 @@
 <?php 
-define ('USER',"user");
-define('PASSWD',"passwd");
-define('SERVER',"srv");
-define('BASE',"base");
+define ('USER',"julesiut");
+define('PASSWD',"4hrZSLZQv7Xyx4Qr");
+define('SERVER',"localhost");
+define('BASE',"iut");
