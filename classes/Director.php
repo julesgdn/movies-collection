@@ -3,30 +3,27 @@
 
 class Director
 {
-    private $id;
     private $name;
     private $birthDate;
 
     /**
      * Director constructor.
-     * @param $id
-     * @param $nom
-     * @param $prenom
-     * @param $dateNaissance
+     * @param $name
      */
-    public function __construct($id, $name, $birthDate)
+    public function __construct($name)
     {
-        $this->id = $id;
         $this->name = $name;
-        $this->birthDate = $birthDate;
     }
 
     /**
-     * @return mixed
+     * @param $name
+     * @param $birthDate
+     * @return Director
      */
-    public function getId()
-    {
-        return $this->id;
+    public static function withBirthDate($name, $birthDate) {
+        $instance = new self($name);
+        $instance->setBirthDate($birthDate);
+        return $instance;
     }
 
     /**

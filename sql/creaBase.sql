@@ -1,13 +1,13 @@
 Drop table IF EXISTS FILMS;
-Drop table IF EXISTS REALISATEUR;
+Drop table IF EXISTS REALISATEURS;
 
-create table REALISATEUR(
+create table REALISATEURS(
     Nom Varchar(100) PRIMARY KEY,
-    DateNaiss DATETIME
+    DateNaiss DATE
 );
 
 create table FILMS(
-    Id SMALLINT,
+    Id SMALLINT PRIMARY KEY AUTO_INCREMENT,
     Titre Varchar(100),
     AnneeRea SMALLINT,
     Genre Varchar(100),
@@ -15,6 +15,6 @@ create table FILMS(
     Synopsis Varchar(300),
     Realisateur Varchar(100),
     AfficheUrl Varchar(255),
-    UtiliseApi BOOLEAN,
-    FOREIGN KEY (Realisateur) REFERENCES REALISATEUR(Nom) ON DELETE CASCADE
+    UtiliseApi VARCHAR (3)
+
 );

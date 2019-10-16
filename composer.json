@@ -1,5 +1,7 @@
 {
+    "minimum-stability": "dev",
     "require": {
-        "twig/twig": "^2.12"
+        "twig/twig": "^2.12",
+        "buibr/tmdbapi": "dev-master"
     }
 }

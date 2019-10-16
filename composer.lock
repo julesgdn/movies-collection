@@ -4,11 +4,60 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "891059633931aaa05b9dc06af4f21bff",
+    "content-hash": "0f2d77afa6638c61a16e97fb73560294",
     "packages": [
         {
+            "name": "buibr/tmdbapi",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/buibr/tmdbapi.git",
+                "reference": "4ab95d9fe384188ee7ba05ee799498c503d0fd45"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/buibr/tmdbapi/zipball/4ab95d9fe384188ee7ba05ee799498c503d0fd45",
+                "reference": "4ab95d9fe384188ee7ba05ee799498c503d0fd45",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.5.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "buibr\\tmdbapi\\": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Adan GQ",
+                    "email": "adan@dont.know",
+                    "role": "Developer"
+                },
+                {
+                    "name": "Burhan Ibrahimi",
+                    "email": "burhan@wflux.pro",
+                    "role": "Developer"
+                }
+            ],
+            "description": "PHP wrapper for The Movie Data Base API version 3",
+            "keywords": [
+                "extensible",
+                "fast",
+                "gfm",
+                "markdown",
+                "markdown-extra"
+            ],
+            "time": "2019-04-24T06:54:21+00:00"
+        },
+        {
             "name": "symfony/polyfill-ctype",
-            "version": "v1.12.0",
+            "version": "dev-master",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/polyfill-ctype.git",
@@ -66,16 +115,16 @@
         },
         {
             "name": "symfony/polyfill-mbstring",
-            "version": "v1.12.0",
+            "version": "dev-master",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/polyfill-mbstring.git",
-                "reference": "b42a2f66e8f1b15ccf25652c3424265923eb4f17"
+                "reference": "a874bbf9135bd76175baa2c26d14312c9ef25543"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/polyfill-mbstring/zipball/b42a2f66e8f1b15ccf25652c3424265923eb4f17",
-                "reference": "b42a2f66e8f1b15ccf25652c3424265923eb4f17",
+                "url": "https://api.github.com/repos/symfony/polyfill-mbstring/zipball/a874bbf9135bd76175baa2c26d14312c9ef25543",
+                "reference": "a874bbf9135bd76175baa2c26d14312c9ef25543",
                 "shasum": ""
             },
             "require": {
@@ -121,20 +170,20 @@
                 "portable",
                 "shim"
             ],
-            "time": "2019-08-06T08:03:45+00:00"
+            "time": "2019-09-17T10:46:08+00:00"
         },
         {
             "name": "twig/twig",
-            "version": "v2.12.0",
+            "version": "2.x-dev",
             "source": {
                 "type": "git",
                 "url": "https://github.com/twigphp/Twig.git",
-                "reference": "c7a85fd08348ca04b4d8f234f49583d9910906aa"
+                "reference": "23419a940881f50525515726eec7507792ace5e0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/twigphp/Twig/zipball/c7a85fd08348ca04b4d8f234f49583d9910906aa",
-                "reference": "c7a85fd08348ca04b4d8f234f49583d9910906aa",
+                "url": "https://api.github.com/repos/twigphp/Twig/zipball/23419a940881f50525515726eec7507792ace5e0",
+                "reference": "23419a940881f50525515726eec7507792ace5e0",
                 "shasum": ""
             },
             "require": {
@@ -188,13 +237,15 @@
             "keywords": [
                 "templating"
             ],
-            "time": "2019-10-05T16:42:38+00:00"
+            "time": "2019-10-05T16:44:39+00:00"
         }
     ],
     "packages-dev": [],
     "aliases": [],
-    "minimum-stability": "stable",
-    "stability-flags": [],
+    "minimum-stability": "dev",
+    "stability-flags": {
+        "buibr/tmdbapi": 20
+    },
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": [],

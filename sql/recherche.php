@@ -1,5 +1,5 @@
 <?php
-require("connexion.php");
+require("connection.php");
 try{
     $connexion = connect_bd();
     $recherche = "SELECT * FROM FILMS";

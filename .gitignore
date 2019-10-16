@@ -1,3 +1,4 @@
-connect.php
+credentials.php
 vendor
 .idea
+models/tmdb-api.php
