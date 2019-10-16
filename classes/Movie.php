@@ -1,17 +1,20 @@
 <?php
 
+use buibr\tmdbapi\TMDB;
+
+require_once 'models/tmdb-api.php';
 
 class Movie
 {
-    private $id;    // Vide si non instancié avec "withId"
-    private $name;
-    private $realizationYear;
-    private $genre;
-    private $studio;
-    private $synopsis;      // Vide si une API tierce est utilisée.
-    private $directorId;
-    private $posterUrl;    // Vide si une API tierce est utilisée.
-    private $useApi;
+    protected $id;    // Vide si non instancié avec "withId"
+    protected $name;
+    protected $realizationYear;
+    protected $genre;
+    protected $studio;
+    protected $synopsis;      // Vide si une API tierce est utilisée.
+    protected $director;
+    protected $posterUrl;    // Vide si une API tierce est utilisée.
+    protected $useApi;
 
     /**
      * Movie constructor.
@@ -20,18 +23,18 @@ class Movie
      * @param $genre
      * @param $studio
      * @param $synopsis
-     * @param $directorId
+     * @param $director
      * @param $posterUrl
      * @param $useApi
      */
-    public function __construct($name, $realizationYear, $genre, $studio, $synopsis, $directorId, $posterUrl, $useApi)
+    public function __construct($name, $realizationYear, $genre, $studio, $synopsis, $director, $posterUrl, $useApi)
     {
         $this->name = $name;
         $this->realizationYear = $realizationYear;
         $this->genre = $genre;
         $this->studio = $studio;
         $this->synopsis = $synopsis;
-        $this->directorId = $directorId;
+        $this->director = $director;
         $this->posterUrl = $posterUrl;
         $this->useApi = $useApi;
     }
@@ -154,17 +157,17 @@ class Movie
     /**
      * @return mixed
      */
-    public function getDirectorId()
+    public function getDirector()
     {
-        return $this->directorId;
+        return $this->director;
     }
 
     /**
-     * @param mixed $directorId
+     * @param mixed $director
      */
-    public function setDirectorId($directorId)
+    public function setDirector($director)
     {
-        $this->directorId = $directorId;
+        $this->director = $director;
     }
 
     /**
@@ -189,5 +192,22 @@ class Movie
     public function useApi()
     {
         return $this->useApi;
+    }
+
+    public function getPosterIdFromAPI() {
+        $tmdb = new TMDB([
+            'apikey' => API_KEY,
+            'lang' => 'fr',
+            'timezone' => 'Europe/Paris',
+            'debug' => false,
+        ]);
+
+        $movies = $tmdb->searchMovie($this->getName());
+
+        foreach($movies as $movie) {
+            if($movie->getTitle() == $this->getName()) {
+                return $movie->getPoster();
+            }
+        }
     }
 }
