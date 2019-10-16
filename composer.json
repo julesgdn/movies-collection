@@ -1,6 +1,7 @@
 {
+    "minimum-stability": "dev",
     "require": {
         "twig/twig": "^2.12",
-        "php-tmdb/api": "~2.1"
+        "buibr/tmdbapi": "dev-master"
     }
 }

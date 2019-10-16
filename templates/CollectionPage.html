@@ -1,0 +1,36 @@
+{% extends "MoviesCollectionBaseTemplate.html" %}
+{% block title %}MoviesCollection{% endblock %}
+
+{% block content %}
+<section class="presentation jumbotron jumbotron-fluid bg-dark ">
+    <h1 class="home-text display-4"><i class="fas fa-film"></i> Votre collection</h1>
+    <h2 class="lead">Retrouvez ici l'ensemble des films que vous possédez dans votre collection.</h2>
+</section>
+<section class="container">
+    <table class="table">
+        <thead>
+        <tr>
+            <th scope="col">Titre</th>
+            <th scope="col">Genre</th>
+            <th scope="col">Studio</th>
+            <th scope="col">Réalisateur</th>
+            <th scope="col">Année de réalisation</th>
+            <th scope="col">Actions rapides</th>
+        </tr>
+        </thead>
+        <tbody>
+        {%for movie in movies %}
+        <tr>
+            <th scope="row"><a href="movie.php?id={{movie.getId()}}">{{ movie.getName() }}</a></th>
+            <td>{{ movie.getGenre() }}</td>
+            <td>{{ movie.getStudio() }}</td>
+            <td>{{ movie.getDirector() }}</td>
+            <td>{{ movie.getRealizationYear() }}</td>
+            <td><a href="deleteMovie.php?id={{movie.getId()}}"><i class="fas fa-trash"></i> Supprimer</td></a>
+
+        </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+</section>
+{% endblock %}

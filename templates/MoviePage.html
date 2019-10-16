@@ -1,0 +1,28 @@
+{% extends "MoviesCollectionBaseTemplate.html" %}
+{% block title %}MoviesCollection{% endblock %}
+
+{% block content %}
+<section class="presentation jumbotron jumbotron-fluid bg-dark ">
+    <h1 class="home-text display-4"><i class="fas fa-play"></i> {{ movie.getName() }}</h1>
+    <h2 class="lead">Film réalisé en {{ movie.getRealizationYear() }} par {{ movie.getDirector()}}.</h2>
+</section>
+<section class="container">
+    <h2>Fiche de renseignements :</h2>
+    <h3>Genre :</h3>
+    <p>{{ movie.getGenre() }}</p>
+    <h3>Studio :</h3>
+    <p>{{ movie.getStudio() }}</p>
+    <h3>Synopsis :</h3>
+    <p>{{ movie.getSynopsis() }}</p>
+    <h3>Affiche :</h3>
+    {% if movie.useApi() %}
+    <img src="http://image.tmdb.org/t/p/w300/{{movie.getPosterIdFromAPI()}}" class="card-img" alt="Affiche du film {{film.getName()}}.">
+    {% else %}
+    {% if movie.getPosterUrl() != null %}}
+    <img src="{{film.getPosterUrl()}}" class="card-img" alt="Affiche du film {{film.getName()}}.">
+    {% else %}
+    <img src="static/images/cinema.jpg" class="card-img" alt="Affiche du film {{film.getName()}}.">
+    {% endif %}
+    {% endif %}
+</section>
+{% endblock %}
