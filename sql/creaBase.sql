@@ -15,6 +15,6 @@ create table FILMS(
     Synopsis Varchar(300),
     Realisateur Varchar(100),
     AfficheUrl Varchar(255),
-    UtiliseApi BOOLEAN,
-    FOREIGN KEY (Realisateur) REFERENCES REALISATEUR(Nom) ON DELETE CASCADE
+    UtiliseApi VARCHAR (3)
+
 );
